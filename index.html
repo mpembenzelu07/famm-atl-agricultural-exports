@@ -231,6 +231,116 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Latest News Section */
+        .news-section {
+            background-color: #f5f9f5;
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .news-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .view-all:hover {
+            color: var(--primary-dark);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-date {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .news-day {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .news-date-num {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .news-month {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 12px;
+        }
+
         /* Footer */
         footer {
             background-color: var(--primary-dark);
@@ -341,6 +451,16 @@
             
             .section {
                 padding: 60px 0;
+            }
+            
+            .news-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -454,6 +574,70 @@
             
             <div style="text-align: center; margin-top: 50px;">
                 <a href="products.html" class="cta-button">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="section news-section">
+        <div class="container">
+            <div class="news-header">
+                <h2>Latest News</h2>
+                <a href="#" class="view-all">Read All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">
+                        <div class="news-day">FRI</div>
+                        <div class="news-date-num">14</div>
+                        <div class="news-month">Nov 2025</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>New Coffee Harvest Season Announcement</h3>
+                        <p>We're excited to announce the beginning of our premium Arabica coffee harvest season in the Tanzanian highlands. Early samples show exceptional quality with optimal weather conditions.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">
+                        <div class="news-day">WED</div>
+                        <div class="news-date-num">5</div>
+                        <div class="news-month">Nov 2025</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Successful Expansion to European Markets</h3>
+                        <p>FAMM ATL has successfully expanded export operations to three new European markets, strengthening our global distribution network and increasing our market reach by 15%.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">
+                        <div class="news-day">TUE</div>
+                        <div class="news-date-num">23</div>
+                        <div class="news-month">Sep 2025</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>New Sustainable Farming Partnership</h3>
+                        <p>We've partnered with 50 new local farmers to implement sustainable farming practices, increasing our organic production capacity by 30% for the upcoming season.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">
+                        <div class="news-day">WED</div>
+                        <div class="news-date-num">17</div>
+                        <div class="news-month">Sep 2025</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>New Warehouse Facility Opening</h3>
+                        <p>Our new 2,000 square meter climate-controlled warehouse facility is now operational, increasing our storage capacity by 40% and improving product preservation.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
