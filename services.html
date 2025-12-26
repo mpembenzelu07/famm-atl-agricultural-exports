@@ -1,1 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Services | FAMM ATL Company Ltd</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #ffffff;
+            --bg-light-secondary: #f9f9f9;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-light);
+            box-shadow: 0 2px 10px var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 150px 0 80px;
+            background: linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.9)), url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            height: 200px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .service-features {
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .process-step {
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+            padding-left: 50px;
+        }
+
+        .process-step:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 0;
+            padding-right: 50px;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 0;
+            left: -25px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .process-step:nth-child(even) .step-number {
+            left: auto;
+            right: -25px;
+        }
+
+        .step-content {
+            background: var(--bg-light-secondary);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .step-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Markets Grid */
+        .markets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .market-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .market-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .market-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .market-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .page-header {
+                padding: 130px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .process-step {
+                width: 100%;
+                padding-left: 80px;
+                margin-left: 0;
+            }
+            
+            .process-step:nth-child(even) {
+                margin-left: 0;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .step-number {
+                left: 5px;
+            }
+            
+            .process-step:nth-child(even) .step-number {
+                left: 5px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-seedling"></i>
+                <div class="logo-text">FAMM<span>ATL</span></div>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html" class="active">Export Services</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Comprehensive Export Services</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Export Services</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Services -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Export Solutions</h2>
+                <p style="max-width: 800px; margin: 0 auto;">We provide end-to-end export services to ensure your agricultural products reach global markets efficiently and reliably.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Export Documentation</h3>
+                        <p>Complete documentation handling including certificates of origin, phytosanitary certificates, and commercial invoices.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Certificate of Origin</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Phytosanitary Certificates</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Commercial Invoices</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Packing Lists</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Logistics & Shipping</h3>
+                        <p>Comprehensive logistics solutions including freight forwarding, customs clearance, and transportation.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Sea Freight (FCL/LCL)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Air Freight</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Customs Clearance</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Inland Transportation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Storage & Handling</h3>
+                        <p>Climate-controlled storage facilities and professional handling to maintain product quality.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Climate-controlled Warehouses</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Fumigation Services</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Quality Control Checks</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Proper Packaging</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export Process -->
+    <section class="section" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Export Process</h2>
+                <p style="max-width: 800px; margin: 0 auto;">A streamlined process ensuring efficiency and reliability from order to delivery.</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Inquiry & Quotation</h3>
+                        <p>We receive your inquiry, assess requirements, and provide a detailed quotation including pricing, timeline, and terms.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Order Confirmation</h3>
+                        <p>Upon agreement, we prepare a sales contract, request deposit payment, and confirm the order.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Sourcing & Quality Check</h3>
+                        <p>We source the products, conduct quality inspections, and prepare them for export with proper packaging.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Documentation & Customs</h3>
+                        <p>We handle all export documentation, obtain necessary certificates, and clear customs.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Shipping & Tracking</h3>
+                        <p>Products are shipped via selected method with real-time tracking provided to the customer.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Delivery & After-sales</h3>
+                        <p>Products are delivered to destination and we provide after-sales support for customer satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Markets -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Global Market Reach</h2>
+                <p style="max-width: 800px; margin: 0 auto;">We export to markets worldwide with established logistics networks and local partnerships.</p>
+            </div>
+            
+            <div class="markets-grid">
+                <div class="market-card">
+                    <div class="market-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h3>Europe</h3>
+                    <p>Germany, Netherlands, UK, France, Italy, Spain</p>
+                </div>
+                
+                <div class="market-card">
+                    <div class="market-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>Asia</h3>
+                    <p>China, India, Japan, South Korea, UAE, Saudi Arabia</p>
+                </div>
+                
+                <div class="market-card">
+                    <div class="market-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3>Africa</h3>
+                    <p>Kenya, Uganda, Rwanda, DR Congo, South Africa</p>
+                </div>
+                
+                <div class="market-card">
+                    <div class="market-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Americas</h3>
+                    <p>USA, Canada, Brazil, Mexico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logistics Partners -->
+    <section class="section" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Logistics & Partnerships</h2>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">We work with leading logistics providers and shipping lines to ensure reliable and cost-effective transportation solutions.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin-top: 40px;">
+                    <div style="background: white; padding: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-ship" style="font-size: 2.5rem; color: var(--primary);"></i>
+                        <span style="margin-left: 10px; font-weight: 600;">Maersk Line</span>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-plane" style="font-size: 2.5rem; color: var(--primary);"></i>
+                        <span style="margin-left: 10px; font-weight: 600;">DHL Global</span>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-truck" style="font-size: 2.5rem; color: var(--primary);"></i>
+                        <span style="margin-left: 10px; font-weight: 600;">Kuehne+Nagel</span>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-boxes" style="font-size: 2.5rem; color: var(--primary);"></i>
+                        <span style="margin-left: 10px; font-weight: 600;">CMA CGM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Export With Us?</h2>
+                <p style="max-width: 700px; margin: 0 auto;">Contact us for a customized export solution tailored to your specific requirements.</p>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="contact.html" style="background-color: var(--primary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 4px; font-weight: 600; display: inline-block; margin: 0 10px;">Request Export Quote</a>
+                <a href="certifications.html" style="background-color: var(--secondary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 4px; font-weight: 600; display: inline-block; margin: 0 10px;">View Our Certifications</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">FAMM ATL</div>
+                    <p>Leading exporter of premium agricultural products from Tanzania to global markets.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Export Services</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Plot 123, Nyerere Road, Dar es Salaam, Tanzania</p>
+                    <p><i class="fas fa-phone"></i> +255 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@fammatl.co.tz</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 FAMM ATL Company Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/255123456789?text=Hello%20FAMM%20ATL%20Company%20Ltd" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
